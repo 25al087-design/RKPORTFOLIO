@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranjith Kumar A | Student Portfolio</title>
+    <!-- Loads the official background email transmission engine safely -->
+    <script type="text/javascript" src="https://jsdelivr.net"></script>
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -38,8 +40,6 @@
         .subtitle { color: #94a3b8; font-size: 1.15em; margin-bottom: 4px; font-weight: 500; }
         .college { color: #38bdf8; font-weight: 600; font-size: 1.1em; margin-bottom: 12px; }
         .contact-info { color: #cbd5e1; font-size: 0.95em; }
-        .contact-info a { color: #38bdf8; text-decoration: none; font-weight: 500; }
-        .contact-info a:hover { text-decoration: underline; }
         
         section { 
             background: rgba(30, 41, 59, 0.45); 
@@ -67,74 +67,90 @@
         td { color: #cbd5e1; }
         
         ul { padding-left: 20px; margin: 10px 0 0 0; }
-        li { margin-bottom: 12px; color: #cbd5e1; font-size: 1.02em; }
+        li { margin-bottom: 18px; color: #cbd5e1; font-size: 1.02em; }
         
-        /* Styled Button for Popup */
-        .cert-btn { 
-            display: inline-block; 
-            color: #38bdf8; 
-            text-decoration: none; 
-            font-weight: 600; 
-            margin-top: 6px; 
-            background: rgba(56, 189, 248, 0.1);
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-        .cert-btn:hover { 
-            background: rgba(56, 189, 248, 0.2); 
-            color: #ffffff;
-            border-color: #38bdf8;
-        }
-
-        /* Modal Popup System Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(5px);
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 80vh;
+        details {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             border-radius: 8px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-            border: 2px solid rgba(255,255,255,0.1);
+            margin-top: 8px;
+            padding: 10px;
         }
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f3f4f6;
-            font-size: 40px;
+        summary { color: #38bdf8; font-weight: 600; cursor: pointer; outline: none; }
+        summary:hover { color: #ffffff; }
+        details[open] summary { margin-bottom: 10px; border-bottom: 1px dashed rgba(56, 189, 248, 0.2); padding-bottom: 4px; }
+        
+        .cert-img-preview {
+            max-width: 100%;
+            max-height: 450px;
+            border-radius: 6px;
+            display: block;
+            margin: 10px auto 0 auto;
+        }
+        .math-inline-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+
+        /* Tech Contact Grid Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-left-card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .info-strip {
+            background: #ffffff;
+            color: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .info-title { font-size: 0.85em; font-weight: bold; color: #64748b; letter-spacing: 1px; text-transform: uppercase; }
+        .info-value { font-size: 1.1em; font-weight: 600; color: #0f172a; margin-top: 4px; }
+        
+        .contact-form-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.9em; font-weight: bold; color: #334155; margin-bottom: 6px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            color: #0f172a;
+            font-size: 0.95em;
+            box-sizing: border-box;
+        }
+        .form-group textarea { resize: vertical; height: 110px; }
+        .submit-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.2s;
+            width: 100%;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
         }
-        .close-btn:hover {
-            color: #38bdf8;
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 30px 0; 
-            color: #64748b; 
-            font-weight: 600; 
-            letter-spacing: 2px; 
-            font-size: 0.9em; 
-        }
+        .submit-btn:hover { background: #1d4ed8; }
+        footer { text-align: center; padding: 30px 0; color: #64748b; font-weight: 600; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -143,7 +159,7 @@
         <h1>Ranjith Kumar A</h1>
         <div class="subtitle">B.Tech - Artificial Intelligence & Machine Learning (2nd Year)</div>
         <div class="college">R.M.D. Engineering College (An Autonomous Institution)</div>
-        <div class="contact-info">Register Number: 111525203087 | Email: <a href="mailto:25al087@rmd.ac.in">25al087@rmd.ac.in</a></div>
+        <div class="contact-info">Register Number: 111525203087 | Email: <strong>25al087@rmd.ac.in</strong></div>
     </header>
 
     <section id="objective">
@@ -157,7 +173,7 @@
         <table>
             <thead><tr><th>Qualification</th><th>Institution</th><th>Performance</th></tr></thead>
             <tbody>
-                <tr><td><strong>B.Tech AIML</strong></td><td>R.M.D. Engineering College</td><td><strong>CGPA: 7.94</strong> (All semesters cleared with zero backlogs)</td></tr>
+                <tr><td><strong>B.Tech AIML</strong></td><td>R.M.D. Engineering College</td><td><strong>CGPA: 8.053</strong> (All semesters cleared cleanly with zero backlogs)</td></tr>
                 <tr><td><strong>12th Standard</strong></td><td>Velammal Matriculation Higher Secondary School</td><td><strong>87.33%</strong></td></tr>
                 <tr><td><strong>10th Standard</strong></td><td>KRM Public School</td><td><strong>72.00%</strong></td></tr>
             </tbody>
@@ -176,42 +192,37 @@
     <section id="certifications">
         <h2>Certifications & Professional Achievements</h2>
         <ul>
-            <li><strong>MIRAI School of Languages — Japanese N5 Level</strong><br><button class="cert-btn" onclick="openModal('japanese_n5.png')">📄 View Japanese N5 Certificate</button></li>
-            <li><strong>Oracle Certified Agentic AI Foundations Associate</strong> (Score: <strong>98%</strong>)<br><button class="cert-btn" onclick="openModal('image_wG5DVX.png')">📄 View Verified Oracle Certificate</button></li>
-            <li><strong>NPTEL Online Certification — Soft Skill Development</strong><br><button class="cert-btn" onclick="openModal('image_5.png')">📄 View National NPTEL Certificate</button></li>
             <li>
-                <strong>Srinivasa Ramanujan Mathematical Competitions (ISTE)</strong><br>
-                Maintained active structural progression across multiple technical examination levels:<br>
-                <button class="cert-btn" onclick="openModal('image_XCrPpD.png')">📄 View Level 1 (Chapter Level) Merit Sheet</button>
-                <button class="cert-btn" onclick="openModal('image_UuAV3g.png')">📄 View Level 2 (State Level) Merit Sheet</button>
-                <button class="cert-btn" onclick="openModal('image_K2OZdx.png')">📄 View Level 3 (National Level) Merit Sheet</button>
+                <strong>MIRAI School of Languages — Japanese N5 Level</strong>
+                <details>
+                    <summary>📄 Click to Toggle Japanese N5 Certificate</summary>
+                    <img class="cert-img-preview" src="japanese_n5.png" alt="Japanese N5 Certificate">
+                </details>
             </li>
-        </ul>
-    </section>
-
-    <!-- Interactive Lightbox Modal Structure -->
-    <div id="certModal" class="modal" onclick="closeModal()">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg" onclick="event.stopPropagation()">
-    </div>
-
-    <footer>LEARN | BUILD | IMPROVE | GROW</footer>
-
-    <!-- Script Engine to handle popups -->
-    <script>
-        function openModal(imgSrc) {
-            document.getElementById('certModal').style.display = "block";
-            document.getElementById('modalImg').src = imgSrc;
-        }
-        function closeModal() {
-            document.getElementById('certModal').style.display = "none";
-        }
-        // Close modal if user presses Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html>
+            <li>
+                <strong>Oracle Certified Agentic AI Foundations Associate</strong> (Score: <strong>98%</strong>)
+                <details>
+                    <summary>📄 Click to Toggle Oracle AI Certificate</summary>
+                    <img class="cert-img-preview" src="image_wG5DVX.png" alt="Oracle AI Certificate">
+                </details>
+            </li>
+            <li>
+                <strong>NPTEL Online Certification — Soft Skill Development</strong>
+                <details>
+                    <summary>📄 Click to Toggle National NPTEL Certificate</summary>
+                    <img class="cert-img-preview" src="image_5.png" alt="NPTEL Certificate">
+                </details>
+            </li>
+            <li>
+                <strong>Srinivasa Ramanujan Mathematical Competitions (ISTE)</strong>
+                <p style="margin: 5px 0 0 0; font-size: 0.95em; color: #94a3b8;">Maintained structural progression across multiple evaluation levels:</p>
+                <div class="math-inline-group">
+                    <details>
+                        <summary>📐 Toggle Level 1 (Chapter Level) Certificate</summary>
+                        <img class="cert-img-preview" src="image_XCrPpD.png" alt="ISTE Level 1">
+                    </details>
+                    <details>
+                        <summary>📐 Toggle Level 2 (State Level) Certificate</summary>
+                        <img class="cert-img-preview" src="image_UuAV3g.png" alt="ISTE Level 2">
+                    </details>
+                    <details>
