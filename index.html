@@ -10,21 +10,21 @@
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; 
-            color: #f4f4f4; 
+            color: #2d3748; 
             max-width: 850px; 
             margin: 0 auto; 
             padding: 30px 20px; 
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             background-attachment: fixed;
         }
         header { 
             text-align: center; 
             padding: 40px 20px; 
-            background: rgba(30, 41, 59, 0.7); 
+            background: rgba(255, 255, 255, 0.85); 
             border-radius: 12px; 
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+            border: 1px solid rgba(203, 213, 225, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); 
             margin-bottom: 30px; 
         }
         .profile-img { 
@@ -36,19 +36,19 @@
             margin-bottom: 15px; 
             box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
         }
-        h1 { margin: 10px 0 5px 0; color: #ffffff; font-size: 2.2em; font-weight: 700; letter-spacing: -0.5px; }
-        .subtitle { color: #94a3b8; font-size: 1.15em; margin-bottom: 4px; font-weight: 500; }
+        h1 { margin: 10px 0 5px 0; color: #1e293b; font-size: 2.2em; font-weight: 700; letter-spacing: -0.5px; }
+        .subtitle { color: #475569; font-size: 1.15em; margin-bottom: 4px; font-weight: 500; }
         .college { color: #38bdf8; font-weight: 600; font-size: 1.1em; margin-bottom: 12px; }
-        .contact-info { color: #cbd5e1; font-size: 0.95em; }
+        .contact-info { color: #64748b; font-size: 0.95em; }
         
         section { 
-            background: rgba(30, 41, 59, 0.45); 
+            background: rgba(255, 255, 255, 0.75); 
             padding: 30px; 
             margin-bottom: 25px; 
             border-radius: 12px; 
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+            border: 1px solid rgba(203, 213, 225, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
         }
         h2 { 
             color: #38bdf8; 
@@ -58,26 +58,26 @@
             font-size: 1.5em; 
             font-weight: 600;
         }
-        p { color: #cbd5e1; font-size: 1.02em; }
-        strong { color: #ffffff; }
+        p { color: #475569; font-size: 1.02em; }
+        strong { color: #1e293b; }
 
         table { width: 100%; border-collapse: collapse; margin: 20px 0 5px 0; }
-        th, td { padding: 14px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        th { background-color: rgba(15, 23, 42, 0.6); font-weight: 600; color: #ffffff; }
-        td { color: #cbd5e1; }
+        th, td { padding: 14px; text-align: left; border-bottom: 1px solid rgba(203, 213, 225, 0.3); }
+        th { background-color: rgba(226, 232, 240, 0.6); font-weight: 600; color: #1e293b; }
+        td { color: #475569; }
         
         ul { padding-left: 20px; margin: 10px 0 0 0; }
-        li { margin-bottom: 18px; color: #cbd5e1; font-size: 1.02em; }
+        li { margin-bottom: 18px; color: #475569; font-size: 1.02em; }
         
         details {
-            background: rgba(15, 23, 42, 0.5);
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(248, 250, 252, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.25);
             border-radius: 8px;
             margin-top: 8px;
             padding: 10px;
         }
         summary { color: #38bdf8; font-weight: 600; cursor: pointer; outline: none; }
-        summary:hover { color: #ffffff; }
+        summary:hover { color: #0284c7; }
         details[open] summary { margin-bottom: 10px; border-bottom: 1px dashed rgba(56, 189, 248, 0.2); padding-bottom: 4px; }
         
         .cert-img-preview {
@@ -89,68 +89,161 @@
         }
         .math-inline-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
 
-        /* Exact Layout Matching Friend 4 style templates */
-        .contact-grid {
+        /* Section Counter */
+        .section-number {
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-right: 8px;
+        }
+
+        /* Contact Section Styles */
+        .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
             margin-top: 20px;
         }
+
         @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
+            .contact-wrapper { grid-template-columns: 1fr; }
         }
-        .contact-left-card {
+
+        .contact-left {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
-        .info-strip {
-            background: #ffffff;
-            color: #0f172a;
-            padding: 20px;
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(203, 213, 225, 0.2);
         }
-        .info-title { font-size: 0.85em; font-weight: bold; color: #64748b; letter-spacing: 1px; text-transform: uppercase; }
-        .info-value { font-size: 1.1em; font-weight: 600; color: #0f172a; margin-top: 4px; }
-        
-        .contact-form-card {
-            background: #ffffff;
+
+        .contact-card-title {
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .contact-card-value {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .contact-icon {
+            margin-right: 8px;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(203, 213, 225, 0.2);
         }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 0.9em; font-weight: bold; color: #334155; margin-bottom: 6px; }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
+
+        .contact-form h3 {
+            color: #1e293b;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        .form-group { 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label { 
+            font-size: 0.9em; 
+            font-weight: 600; 
+            color: #475569; 
+            margin-bottom: 8px; 
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            padding: 12px 14px;
             background: #f8fafc;
             border: 1px solid #cbd5e1;
             border-radius: 6px;
-            color: #0f172a;
+            color: #1e293b;
             font-size: 0.95em;
-            box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.2s;
         }
-        .form-group textarea { resize: vertical; height: 110px; }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #38bdf8;
+            background: #ffffff;
+        }
+
+        .form-group textarea { 
+            resize: vertical; 
+            height: 120px;
+            min-height: 80px;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
         .submit-btn {
             background: #2563eb;
             color: #ffffff;
             border: none;
-            padding: 14px 20px;
+            padding: 14px 24px;
             border-radius: 6px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             width: 100%;
             font-size: 1em;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: background 0.2s;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 10px;
         }
-        .submit-btn:hover { background: #1d4ed8; }
-        footer { text-align: center; padding: 30px 0; color: #64748b; font-weight: 600; letter-spacing: 2px; }
+
+        .submit-btn:hover { 
+            background: #1d4ed8; 
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            color: #64748b; 
+            font-weight: 600; 
+            letter-spacing: 2px; 
+        }
     </style>
 </head>
 <body>
@@ -163,13 +256,13 @@
     </header>
 
     <section id="objective">
-        <h2>Career Objective</h2>
+        <h2><span class="section-number">01</span>Career Objective</h2>
         <p><strong>Short-Term:</strong> To strengthen my technical knowledge, coding skills, and communication, and to gain hands-on industry experience.</p>
         <p><strong>Long-Term:</strong> To build a successful career in the IT industry and contribute to meaningful technology projects with continuous professional growth.</p>
     </section>
 
     <section id="academic">
-        <h2>Academic Details</h2>
+        <h2><span class="section-number">02</span>Academic Details</h2>
         <table>
             <thead><tr><th>Qualification</th><th>Institution</th><th>Performance</th></tr></thead>
             <tbody>
@@ -181,7 +274,7 @@
     </section>
 
     <section id="skills">
-        <h2>Technical Competencies & Languages</h2>
+        <h2><span class="section-number">03</span>Technical Competencies & Languages</h2>
         <ul>
             <li><strong>Programming Languages:</strong> Core Python, structural C syntax, and object-oriented Java foundations.</li>
             <li><strong>Global Languages:</strong> Japanese Language Proficiency (N5 Certificate Holder).</li>
@@ -190,7 +283,7 @@
     </section>
 
     <section id="certifications">
-        <h2>Certifications & Professional Achievements</h2>
+        <h2><span class="section-number">04</span>Certifications & Professional Achievements</h2>
         <ul>
             <li>
                 <strong>MIRAI School of Languages — Japanese N5 Level</strong>
@@ -215,7 +308,7 @@
             </li>
             <li>
                 <strong>Srinivasa Ramanujan Mathematical Competitions (ISTE)</strong>
-                <p style="margin: 5px 0 0 0; font-size: 0.95em; color: #94a3b8;">Maintained structural progression across multiple evaluation levels:</p>
+                <p style="margin: 5px 0 0 0; font-size: 0.95em; color: #64748b;">Maintained structural progression across multiple evaluation levels:</p>
                 <div class="math-inline-group">
                     <details>
                         <summary>📐 Toggle Level 1 (Chapter Level) Certificate</summary>
@@ -226,3 +319,91 @@
                         <img class="cert-img-preview" src="image_UuAV3g.png" alt="ISTE Level 2">
                     </details>
                     <details>
+                        <summary>📐 Toggle Level 3 (National Level) Certificate</summary>
+                        <img class="cert-img-preview" src="image_level3.png" alt="ISTE Level 3">
+                    </details>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2><span class="section-number">05</span>Get in Touch</h2>
+        <p>Open to internships, collaborative projects, and conversations about AI and software engineering. Send a message and I'll respond as soon as I can.</p>
+        
+        <div class="contact-wrapper">
+            <!-- Left Side: Contact Info Cards -->
+            <div class="contact-left">
+                <div class="contact-card">
+                    <div class="contact-card-title"><span class="contact-icon">✉️</span>EMAIL</div>
+                    <div class="contact-card-value">25al087@rmd.ac.in</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-title"><span class="contact-icon">📍</span>COLLEGE</div>
+                    <div class="contact-card-value">R.M.D. Engineering College</div>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="contact-form">
+                <h3>Send me a message</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-group-full">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-group-full">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        ➤ Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2024 Ranjith Kumar A | All Rights Reserved
+    </footer>
+
+    <script>
+        // Contact form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:25al087@rmd.ac.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
